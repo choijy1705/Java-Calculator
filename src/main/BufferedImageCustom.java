@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BufferedImageCustom {
-    public Image imageIcon() throws IOException {
+    public Image imageReturn() throws IOException {
         Image image;
 
         InputStream bis = getClass().getResourceAsStream("/resources/icon/icon.png");

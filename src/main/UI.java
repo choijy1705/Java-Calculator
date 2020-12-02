@@ -17,7 +17,7 @@ public class UI {
     private final JPanel panelSub7;
     private final JPanel panelSub8;
 
-    private final JTextArea text;
+
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
             butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;

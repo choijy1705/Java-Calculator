@@ -7,7 +7,7 @@ public class JavaCalculator {
     public static void main(String[] args) throws IOException {
 
         UI uiCal = new UI();
-
+        uiCal.init();
 
     }
 }

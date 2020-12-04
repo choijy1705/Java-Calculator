@@ -4,54 +4,54 @@ import static java.lang.Double.NaN;
 
 public class Calculator {
 
-    public enum BiOperatorModes{
+    public enum BiOperatorModes {
         normal, add, minus, multiply, divide, xpowerofy
     }
 
-    public enum MonoOperatorModes{
+    public enum MonoOperatorModes {
         square, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs
     }
 
     private Double num1, num2;
     private BiOperatorModes mode = BiOperatorModes.normal;
 
-    private Double calculateBiImpl(){
-        if(mode == BiOperatorModes.normal){
+    private Double calculateBiImpl() {
+        if (mode == BiOperatorModes.normal) {
             return num2;
         }
 
-        if(mode == BiOperatorModes.add){
+        if (mode == BiOperatorModes.add) {
             return num1 + num2;
         }
 
-        if(mode == BiOperatorModes.minus){
+        if (mode == BiOperatorModes.minus) {
             return num1 - num2;
         }
 
-        if(mode == BiOperatorModes.multiply){
+        if (mode == BiOperatorModes.multiply) {
             return num1 * num2;
         }
 
-        if(mode == BiOperatorModes.divide){
-            return num1/num2;
+        if (mode == BiOperatorModes.divide) {
+            return num1 / num2;
         }
 
-        if(mode == BiOperatorModes.xpowerofy){
-            return Math.pow(num1,num2);
+        if (mode == BiOperatorModes.xpowerofy) {
+            return Math.pow(num1, num2);
         }
 
         throw new Error();
 
     }
 
-    public Double calculateBi(BiOperatorModes newMode, Double num){
-        if(mode == BiOperatorModes.normal){
+    public Double calculateBi(BiOperatorModes newMode, Double num) {
+        if (mode == BiOperatorModes.normal) {
             num2 = 0.0;
             num1 = num;
             mode = newMode;
             return NaN;
-        }else{
-            num2  = num;
+        } else {
+            num2 = num;
             num1 = calculateBiImpl();
             mode = newMode;
             return num1;
@@ -59,11 +59,11 @@ public class Calculator {
 
     }
 
-    public Double calculateEqual(Double num){
+    public Double calculateEqual(Double num) {
         return calculateBi(BiOperatorModes.normal, num);
     }
 
-    public Double reset(){
+    public Double reset() {
         num2 = 0.0;
         num1 = 0.0;
         mode = BiOperatorModes.normal;
@@ -71,47 +71,47 @@ public class Calculator {
         return NaN;
     }
 
-    public Double calculateMono(MonoOperatorModes newMode, Double num){
-        if(newMode == MonoOperatorModes.square){
-            return num*num;
+    public Double calculateMono(MonoOperatorModes newMode, Double num) {
+        if (newMode == MonoOperatorModes.square) {
+            return num * num;
         }
 
-        if(newMode == MonoOperatorModes.squareRoot){
+        if (newMode == MonoOperatorModes.squareRoot) {
             return Math.sqrt(num);
         }
 
-        if(newMode == MonoOperatorModes.oneDividedBy){
-            return 1/num;
+        if (newMode == MonoOperatorModes.oneDividedBy) {
+            return 1 / num;
         }
 
-        if(newMode == MonoOperatorModes.cos){
+        if (newMode == MonoOperatorModes.cos) {
             return Math.cos(Math.toRadians(num));
         }
 
-        if(newMode == MonoOperatorModes.sin){
+        if (newMode == MonoOperatorModes.sin) {
             return Math.sin(Math.toRadians(num));
         }
 
-        if(newMode == MonoOperatorModes.tan){
-            if(num == 0 || num%180 == 0){
+        if (newMode == MonoOperatorModes.tan) {
+            if (num == 0 || num % 180 == 0) {
                 return 0.0;
             }
 
-            if(num % 90 == 0 && num%180 !=0){
+            if (num % 90 == 0 && num % 180 != 0) {
                 return NaN;
             }
             return Math.tan(Math.toRadians(num));
         }
 
-        if(newMode == MonoOperatorModes.log){
+        if (newMode == MonoOperatorModes.log) {
             return Math.log10(num);
         }
 
-        if(newMode == MonoOperatorModes.rate){
-            return num/100;
+        if (newMode == MonoOperatorModes.rate) {
+            return num / 100;
         }
 
-        if(newMode == MonoOperatorModes.abs){
+        if (newMode == MonoOperatorModes.abs) {
             return Math.abs(num);
         }
 

@@ -26,7 +26,7 @@ public class UI implements ActionListener {
             butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
     private final Calculator calc;
 
-    private final String[] buttonValue = {"0","1","2","3","4","5","6","7","8","9"};
+    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
     private final Font font;
     private final Font textFont;
@@ -51,14 +51,14 @@ public class UI implements ActionListener {
         panelSub7 = new JPanel(new FlowLayout());
         panelSub8 = new JPanel(new FlowLayout());
 
-        font = new Font("Consolas",Font.PLAIN,18);
+        font = new Font("Consolas", Font.PLAIN, 18);
 
         text = new JTextArea(1, 30);
 
         textFont = new Font("Consolas", Font.BOLD, 24);
 
         but = new JButton[10];
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             but[i] = new JButton(String.valueOf(i));
         }
         butAdd = new JButton("+");
@@ -82,8 +82,8 @@ public class UI implements ActionListener {
         calc = new Calculator();
     }
 
-    public void init(){
-        frame.setSize(450,450);
+    public void init() {
+        frame.setSize(450, 450);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -94,7 +94,7 @@ public class UI implements ActionListener {
         text.setFont(textFont);
         text.setEditable(false);
 
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             but[i].setFont(font);
         }
         butAdd.setFont(font);
@@ -260,7 +260,7 @@ public class UI implements ActionListener {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.rate,
                     reader()));
         }
-        if(source == butabs){
+        if (source == butabs) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
         }
 
@@ -278,7 +278,8 @@ public class UI implements ActionListener {
 
         text.selectAll();
     }
-    public void parsetoBinary(){
+
+    public void parsetoBinary() {
         try {
             text.setText("" + Long.toBinaryString(Long.parseLong(text.getText())));
         } catch (NumberFormatException ex) {
@@ -286,7 +287,7 @@ public class UI implements ActionListener {
         }
     }
 
-    public void writer(final Double num){
+    public void writer(final Double num) {
         if (Double.isNaN(num)) {
             text.setText("");
         } else {
@@ -294,7 +295,7 @@ public class UI implements ActionListener {
         }
     }
 
-    public Double reader(){
+    public Double reader() {
         Double num;
         String str;
         str = text.getText();
